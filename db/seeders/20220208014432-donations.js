@@ -18,8 +18,12 @@ module.exports = {
     const Tester = await Person.findOne({where: {lastName: "Tester", firstName: "Jon"}}); // N00027605
     const Scott = await Person.findOne({where: {lastName: "Scott", firstName: "Tim"}}); // N00031782
     const Hagerty = await Person.findOne({where: {lastName: "Hagerty", firstName: "Bill"}}); // N00045369
+    const Moran = await Person.findOne({where: {lastName: "Moran", firstName: "Moran"}}); // N00005282
+    const Cramer = await Person.findOne({where: {lastName: "Cramer", firstName: "Kevin"}}); // N00004614
 
     await queryInterface.bulkInsert("Donations", [
+      {personId: Cramer.id, amount: 500675, industryId: OG.id},
+      {personId: Moran.id, amount: 88805, industryId: OG.id},
       {personId: Toomey.id, amount: 82974, industryId: OG.id},
       {personId: Kennedy.id, amount: 356769, industryId: OG.id},
       {personId: Warnock.id, amount: 30059, industryId: OG.id},
