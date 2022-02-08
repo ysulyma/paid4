@@ -21,6 +21,8 @@ The process is:
 
 ## To-Dos: Code
 
+### Major
+
 * get permission to use the OpenSecrets API, or at least their Bulk Data API
 
 * get `youtube-dl` and `ffmpeg` on a Lambda instance??
@@ -28,6 +30,16 @@ The process is:
 * add support for live-streamed hearings
 
 * browser extension?
+
+### Minor
+
+* set up script to regularly scrape hearing data
+
+* make nice backend/GUI for transcript labeling
+
+* make video popups nicer
+
+* make site nicer
 
 ## To-Dos: Other
 
