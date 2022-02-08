@@ -54,3 +54,14 @@ iframe {
   left: 0;
   top: 0;
 }
+
+#github-logo {
+  height: 70%;
+  position: absolute;
+  top: 15%;
+  right: 1em;
+}
+
+#github-logo > img {
+  height: 100%;
+}
