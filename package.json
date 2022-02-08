@@ -1,0 +1,57 @@
+{
+  "name": "paid4",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysulyma/paid4.git"
+  },
+  "author": "Yuri Sulyma <yuri.sulyma@protonmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ysulyma/paid4/issues"
+  },
+  "homepage": "https://github.com/ysulyma/paid4#readme",
+  "dependencies": {
+    "@aws-sdk/client-lambda": "^3.49.0",
+    "@aws-sdk/client-s3": "^3.49.0",
+    "@aws-sdk/client-transcribe": "^3.49.0",
+    "@aws-sdk/signature-v4-crt": "^3.49.0",
+    "body-parser": "^1.19.1",
+    "compression": "^1.7.4",
+    "connect-redis": "^6.1.0",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "helmet": "^5.0.2",
+    "ibm-watson": "^6.2.2",
+    "jsdom": "^19.0.0",
+    "node-fetch": "^3.2.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.15.0",
+    "sequelize-cli": "^6.4.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5",
+    "youtube-dl-exec": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.0",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.15",
+    "@yuri/eslint-config": "^1.0.1",
+    "eslint": "^8.8.0",
+    "jest": "^27.4.7",
+    "livereload": "^0.9.3",
+    "require-nocache": "^1.0.0",
+    "ts-jest": "^27.1.3"
+  }
+}

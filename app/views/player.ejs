@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Integrated Senate Video Player</title>
+		<link type="text/css" rel="stylesheet" href="https://www.senate.gov/isvp/resources/styles/styles.css" />
+		<!--Player-->
+		<script type="text/javascript" src="https://www.senate.gov/isvp/amp/amp.min.js"></script>
+		<script type="text/javascript">
+//force https
+if (window.location.protocol == "http:") {
+ var restOfUrl = window.location.href.substr(5);
+ window.location = "https:" + restOfUrl;
+}
+//Parses URL query string
+function getParameter(paramName) {
+	
+	var searchString = `comm=banking&type=live&stt=&filename=banking020322&auto_play=false&wmode=transparent&poster=https%3A%2F%2Fwww%2Ebanking%2Esenate%2Egov%2Fthemes%2Fbanking%2Fimages%2Fvideo%2Dposter%2Dflash%2Dfit%2Epng`,
+		i, val, params = searchString.split("&");
+
+		for (i=0;i<params.length;i++) {
+			val = params[i].split("=");
+			if (val[0] == paramName) {
+  		return unescape(val[1]);
+			}
+						}
+			return null;
+}
+//Function to parse the time into seconds for the stt and dur url queries.  The possible time formats are [seconds], [mm:ss], and [hh:mm:ss]
+function parseTime(str) {
+	var parse = str.split(':'),
+	s = 0, m = 1;
+
+	while (parse.length > 0) {
+		s += m * parseInt(parse.pop(), 10);
+		m *= 60;
+		}
+			return s;
+}
+//Calling the getParameter function to get the appropriate parameters for the video source.
+//Get type parameter from URL for Live or Archive streams
+var type = getParameter('type');
+//Get comm parameter to determine the committee
+var comm = getParameter('comm');
+//Get the filename parameter to get the proper stream
+var filename = getParameter('filename');
+//Get auto_play parameter so the video plays automatically or not (by default videos are set to play automatically.  This is done in the function autoPlay)
+var auto = ( getParameter('auto_play') == "true" ) ? true : false;
+//getParameter('auto_play');
+/*function autoPlay(auto){
+	if (x === false){
+		return false;
+	}	else {
+		return auto;
+	}
+}*/
+//Show a poster before the video is played.  If playing flash, this works if a properly configured crossdomain.xml is placed at the root of the site the poster is being pulled from. If playing html, none of this configuration is needed. Link for configuring crossdomain.xml can be found here.  https://kb2.adobe.com/cps/142/tn_14213.html
+var urlPoster = getParameter('poster');
+//Get the stt paramter to start the video, needs to be in a specified time format: [seconds]|[mm:ss]|[hh:mm:ss]
+var stt = getParameter('stt');
+var s = Boolean(stt); //Prevent falsy variable
+if (s !== false) {
+	var sttSec = parseTime(stt);
+}
+//Get the dur paramter to stop the video, needs to be in a specified time format: [seconds]|[mm:ss]|[hh:mm:ss]
+var dur = getParameter('dur');
+var d = Boolean(dur); //Prevent falsy variable
+if (d !== false) {
+	var durSec = parseTime(dur);
+}
+
+var streamInfo = new Array
+	(
+		["ag", "76440", "https://ag-f.akamaihd.net"],
+		["aging", "76442", "https://aging-f.akamaihd.net"],
+		["approps", "76441", "https://approps-f.akamaihd.net"],
+		["armed", "76445", "https://armed-f.akamaihd.net"],
+		["banking", "76446", "https://banking-f.akamaihd.net"],
+		["budget", "76447", "https://budget-f.akamaihd.net"],
+		["cecc", "76486", "https://srs-f.akamaihd.net"],
+		["commerce", "80177", "https://commerce1-f.akamaihd.net"],
+		["csce", "75229", "https://srs-f.akamaihd.net"],
+		["dpc", "76590", "https://dpc-f.akamaihd.net"],
+		["energy", "76448", "https://energy-f.akamaihd.net"],
+		["epw", "76478", "https://epw-f.akamaihd.net"],
+		["ethics", "76449", "https://ethics-f.akamaihd.net"],
+		["finance", "76450", "https://finance-f.akamaihd.net"],
+		["foreign", "76451", "https://foreign-f.akamaihd.net"],
+		["govtaff", "76453", "https://govtaff-f.akamaihd.net"],
+		["help", "76452", "https://help-f.akamaihd.net"],
+		["indian", "76455", "https://indian-f.akamaihd.net"],
+		["intel", "76456", "https://intel-f.akamaihd.net"],
+		["intlnarc", "76457", "https://intlnarc-f.akamaihd.net"],
+		["jccic", "85180", "https://jccic-f.akamaihd.net"],
+		["jec", "76458", "https://jec-f.akamaihd.net"],
+		["judiciary", "76459", "https://judiciary-f.akamaihd.net"],
+		["rpc", "76591", "https://rpc-f.akamaihd.net"],
+		["rules", "76460", "https://rules-f.akamaihd.net"],
+		["saa", "76489", "https://srs-f.akamaihd.net"],
+		["smbiz", "76461", "https://smbiz-f.akamaihd.net"],
+		["srs", "75229", "https://srs-f.akamaihd.net"],
+		["uscc", "76487", "https://srs-f.akamaihd.net"],
+		["vetaff", "76462", "https://vetaff-f.akamaihd.net"],
+		["arch", "", "https://ussenate-f.akamaihd.net/"]
+	);
+// Iterates the array looking for comm which is defined in the url parameters.  If the committee name is found the j variable is increased by 1 to provide the Akamai stream number, and then j variable is also increased by 2 to provide the specific Akamai domain for the committee stream.
+for (var i = 0; i <streamInfo.length; i++) {
+		for (var j = 0; j < streamInfo[i].length; j++){
+			if (comm === false ){
+				break;
+			}else if (streamInfo[i][j] === comm) {
+					var streamNum = streamInfo[i][j+1];
+					var streamDomain = streamInfo[i][j+2];
+					break;
+			}else {
+				var streamArch = streamInfo[i][j+2];
+				break;
+			}
+	}
+}
+var hdsurl = streamDomain + '/z/'+ filename + '_1@' + streamNum + "/manifest.f4m?";
+var hlsurl = streamDomain + '/i/'+ filename + '_1@' + streamNum + "/master.m3u8?";
+var hlsarch = streamArch + 'i/' + filename + '.mp4' + '/master.m3u8';
+var hlsarchflv = streamArch + 'i/' + filename + '.flv' + '/master.m3u8';
+var archmp4 = streamArch + filename + '.mp4';
+var archflv = streamArch + filename + '.flv';
+var hdsvideos = [hdsurl, archmp4, archflv];
+var hlsvideos = [hlsurl, hlsarch, hlsarchflv];
+var counter = 0;
+function add() {
+	counter +=1;
+}
+
+var amp;
+function loadHandler(event) {
+	var config = {
+		paths: {
+		            player: "https://www.senate.gov/isvp/amp/",
+		            resources: "https://www.senate.gov/isvp/resources/",
+								plugins: "https://www.senate.gov/isvp/akamai/amp/"
+		          },
+		plugins: {
+			react: {
+              resources: [
+                {src: "#{paths.plugins}react/libs/react.min.js", debug: "#{paths.plugins}react/libs/react.js", type: "text/javascript", async: true},
+                {src: "#{paths.plugins}react/React.min.css", debug: "#{paths.plugins}react/React.css", type: "text/css", async: true},
+                {src: "#{paths.plugins}react/React.min.js", debug: "#{paths.plugins}react/React.js", type: "text/javascript"}
+              ],
+            }
+          },
+					controls: {
+						displaySceneMarkers: true
+					},
+	flash: {vars:{ hds_enable_ssl_transfer: true}},
+	autoplay: auto,
+	media : {
+		scenes: [
+              {
+                "title": "Scene 1",
+                "description": "Scene 1 - Description",
+                "start": 10,
+                "end": 20
+              },
+              {
+                "title": "Scene 2",
+                "description": "Scene 2 - Description",
+                "start": 20,
+                "end": 30
+              },
+              {
+                "title": "Scene 3",
+                "description": "Scene 2 - Description",
+                "start": 30,
+                "end": 40
+              }
+          ],
+		poster: urlPoster,
+		temporalType: "dvr",
+		source : [
+			{src : hdsvideos[0], type : "video/f4m"},
+			{src : hlsvideos[0], type : "application/x-mpegURL"}
+			],
+			track : [{
+				kind : "captions",
+				type : "text/cea-708",
+							srclang : "en",
+							//src : ""
+			}]
+					},
+			/*captioning : {
+				enabled : true
+			}*/
+		};
+						amp = akamai.amp.AMP.create("akamai-media-player",config, readyHandler);
+						function readyHandler() {
+							amp.addEventListener("error", errorHandler);
+							amp.addEventListener("canplaythrough", startHandler);
+							amp.addEventListener("timeupdate", durationCheck);
+			  			//amp.captioning.changeSettings({fontFamily: {"Monospaced Serif": "Arial","Proportional Serif": "Arial",}});
+							amp.addEventListener("captioningvisibilitychange", function(event) {
+								console.debug(amp.captioning.getHidden());
+							});
+							dings();
+							// speakers();
+						}
+	}
+	function errorHandler(e)
+	{
+				setTimeout(function() {
+					amp.setMedia({
+						autoplay: true,
+						source: [{
+							src: hdsvideos[counter],
+							type: "video/f4m"
+
+						},{
+							src: hlsvideos[counter],
+							type: "application/x-mpegURL"
+
+						}],
+						track: [{
+							kind:"captions",
+							type: "embedded",
+							srclang: "en",
+							src:""
+						}]
+					});
+				}, 100, add());
+	}
+function startHandler(event)//If the STT variable is defined in the URL the player will seek to that time specified.
+{
+	setTimeout(function(){if (sttSec > 0)
+	amp.setCurrentTime(sttSec)},1);
+	amp.removeEventListener("canplaythrough",startHandler);
+}
+function durationCheck(event)
+{
+	if (durSec > 0)
+	{
+		durationHandler();
+	}
+}
+function durationHandler(event)
+{
+	currentTimeChecker = amp.getCurrentTime();
+	if (currentTimeChecker > durSec)
+		{
+			amp.end();
+		}
+}
+</script>
+<link rel="stylesheet" href="/css/player.css" type="text/css">
+</head>
+	<!-- HACK: ontouchstart="" is a workaround that enables the use of the CSS :active psuedo class on iOS -->
+	<body onload="loadHandler()" ontouchstart="">
+		<div id="akamai-media-player"></div>
+		<script>window.paid4 = <%- JSON.stringify(data) %></script>
+		<script src="/js/ding.js"></script>
+		<!-- <script src="/js/speakers.js"></script> -->
+	</body>
+</html>

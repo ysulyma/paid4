@@ -1,0 +1,380 @@
+[
+  {
+    "time": 1805.52,
+    "speaker": 1855,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 1805.89,
+    "speaker": 1855,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 1806.7,
+    "speaker": 1855,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 1819.86,
+    "speaker": 1855,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 1932.09,
+    "speaker": 1855,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 1944.04,
+    "speaker": 1855,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 1954.25,
+    "speaker": 1855,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 1967.2,
+    "speaker": 1855,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 1972.88,
+    "speaker": 1855,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 4797.16,
+    "speaker": 1845,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 5631.55,
+    "speaker": 1811,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 5631.95,
+    "speaker": 1811,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 5667.57,
+    "speaker": 1811,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 5667.85,
+    "speaker": 1811,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 5684.88,
+    "speaker": 1811,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 5685.2,
+    "speaker": 1811,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 5699.44,
+    "speaker": 1811,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 5750.96,
+    "speaker": 1811,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 5751.32,
+    "speaker": 1811,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 5846.3,
+    "speaker": 1811,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 5846.68,
+    "speaker": 1811,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 6501.09,
+    "speaker": 1799,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 6517.42,
+    "speaker": null,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 6528.84,
+    "speaker": null,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 6560.57,
+    "speaker": 1799,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 6560.83,
+    "speaker": 1799,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 6563.47,
+    "speaker": 1799,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 6575.08,
+    "speaker": 1799,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 6575.37,
+    "speaker": 1799,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 6577.05,
+    "speaker": 1799,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 6577.3,
+    "speaker": 1799,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 7558.32,
+    "speaker": 1859,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 7571.92,
+    "speaker": 1859,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 7572.58,
+    "speaker": 1859,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 7770.77,
+    "speaker": null,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 7869.57,
+    "speaker": 1787,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 7869.92,
+    "speaker": 1787,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 7893.16,
+    "speaker": 1787,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 7893.54,
+    "speaker": 1787,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 7910.78,
+    "speaker": 1787,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 7911.02,
+    "speaker": 1787,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 7996.55,
+    "speaker": 1787,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 8014.72,
+    "speaker": 1787,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 8047.5,
+    "speaker": 1787,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 8329.97,
+    "speaker": 1852,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 8330.55,
+    "speaker": 1852,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 8554.55,
+    "speaker": 1825,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 8555.31,
+    "speaker": 1825,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 8555.81,
+    "speaker": 1825,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 8579.54,
+    "speaker": 1825,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 8579.93,
+    "speaker": 1825,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 8580.46,
+    "speaker": 1825,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 8615.67,
+    "speaker": 1825,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 8635.63,
+    "speaker": 1825,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 8635.92,
+    "speaker": 1825,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 8642.48,
+    "speaker": 1825,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 8643.28,
+    "speaker": 1825,
+    "keyword": "energy",
+    "industry": 1
+  },
+  {
+    "time": 8771.16,
+    "speaker": 1825,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 8771.4,
+    "speaker": 1825,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 9152.62,
+    "speaker": 1860,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 9636.37,
+    "speaker": null,
+    "keyword": "oil",
+    "industry": 1
+  },
+  {
+    "time": 9636.68,
+    "speaker": null,
+    "keyword": "gas",
+    "industry": 1
+  },
+  {
+    "time": 10413.2,
+    "speaker": 1855,
+    "keyword": "energy",
+    "industry": 1
+  }
+]
