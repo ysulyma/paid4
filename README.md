@@ -21,7 +21,7 @@ The process is:
 
 ## To-Dos: Code
 
-### Major
+### Features
 
 * get permission to use the OpenSecrets API, or at least their Bulk Data API
 
@@ -31,7 +31,7 @@ The process is:
 
 * browser extension?
 
-### Minor
+### Improvements
 
 * set up script to regularly scrape hearing data
 
@@ -40,6 +40,8 @@ The process is:
 * make video popups nicer
 
 * make site nicer
+
+* improve mobile display
 
 ## To-Dos: Other
 
