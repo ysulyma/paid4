@@ -26,7 +26,7 @@ module.exports = {
       const person = people.find(_ => _.openSecrets === key);
       oldToNew[localIds[key]] = person.id
     }
-    const data = fs.readFileSync(`${__dirname}/../../annotated.json`, "utf8");
+    const data = JSON.parse(fs.readFileSync(`${__dirname}/../../annotated.json`, "utf8"));
 
     for (const item of data) {
       if (item.speaker === null)
