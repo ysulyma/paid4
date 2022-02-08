@@ -4,7 +4,7 @@
 import express from "express";
 import * as http from "http";
 import * as path from "path";
-const reload = require("require-nocache")(module);
+// const reload = require("require-nocache")(module);
 
 const app = express();
 if (app.get("env") === "production" && process.env.HEROKU) {
