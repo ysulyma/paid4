@@ -37,7 +37,7 @@ module.exports = {
 
     await queryInterface.bulkInsert("Hearings", [{
       url: "https://www.banking.senate.gov/hearings/01/25/2022/nomination-hearing",
-      data
+      data: JSON.stringify(data)
     }]);
   },
 
