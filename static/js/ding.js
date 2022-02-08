@@ -1,7 +1,9 @@
 (function() {
 
 const popupDuration = 5;
-const Money = new Intl.NumberFormat('en-US', {currency: "USD", currencyDisplay: "narrowSymbol", minimumFractionDigits: 0, style: "currency" });
+
+// currencyDisplay: narrowSymbol doesn't work on old iOS
+const Money = new Intl.NumberFormat();
 
 window.dings = function dings() {
   const bar = document.querySelector(".amp-progress");
@@ -60,7 +62,7 @@ function makePopup({donation, industry, person}) {
   aside.id = `popup-p${person.id}i${industry.id}`;
   aside.classList.add("donation");
   aside.innerHTML = `
-    <span class="amount">${Money.format(donation.amount)}</span>
+    <span class="amount">$${Money.format(donation.amount)}</span>
     <span class="industry">from ${industry.name} (<a href="${osUrl(person)}" target="_blank">OpenSecrets</a>)</span>`;
 
   return aside;  
